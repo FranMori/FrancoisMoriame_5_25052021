@@ -1,0 +1,71 @@
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff5ee;
+}
+
+.header__logo img {
+  width: 400px;
+}
+
+.header__panier {
+  background-color: #965feb;
+  display: flex;
+  justify-content: space-around;
+  padding: 10px;
+}
+.header__panier i {
+  font-size: 20px;
+}
+
+.liste {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+  flex-direction: column;
+}
+.liste img {
+  width: 300px;
+  height: 300px;
+}
+.liste__carte {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  margin: 20px 0px;
+  border-radius: 10%;
+  -webkit-box-shadow: inset 0px 5px 5px 0px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: inset 0px 5px 5px 0px rgba(0, 0, 0, 0.1);
+  box-shadow: inset 0px 5px 5px 0px rgba(0, 0, 0, 0.1);
+}
+.liste__carte__image img {
+  width: 100%;
+}
+.liste__carte__description {
+  display: flex;
+  justify-content: center;
+  margin: 10px 0px;
+}
+.liste__carte__prix {
+  display: flex;
+  justify-content: center;
+  font-weight: 800;
+}
+
+footer {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #fff5ee;
+}
+footer ul {
+  list-style: none;
+}
+
+.footer__logo img {
+  width: 150px;
+}
+
+/*# sourceMappingURL=style.css.map */

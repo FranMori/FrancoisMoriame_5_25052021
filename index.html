@@ -6,22 +6,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <script src="https://kit.fontawesome.com/420e897a90.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="/style.css">
 
   <title>Orinoco</title>
 </head>
 <body>
   <header>
-    <h1 class="header__titre">Orinoco</h1>
+    <div class="header__logo"><img src="/images/logo.png" alt="Logo de l'entreprise Orinoco"></div>
     <div class="header__panier"><i class="header__panier__logo fas fa-shopping-cart"></i>
       Mon panier
     </div>
-    <div class="header__logo">LOGO</div>
 
   </header>
 <section class="liste">
 
 <div class="liste__carte">
-  <img class="liste__carte__image" src="/images/oak_1.jpg" alt="Image d'un meuble en chêne">
+  <div class="liste__carte__image">
+  <img src="/images/oak_1.jpg" alt="Image d'un meuble en chêne"></div>
   <div class="liste__carte__description"> Lorem, ipsum dolor sit amet consectetur adipisicing elit. Mollitia, possimus. </div>
   <div class="liste__carte__prix"> 100€</div>
 </div>
@@ -52,10 +53,16 @@
 
 
   <footer>
-  <div class="footer__paiement">Moyens de paiement disponible :
+  <div class="footer__info">
+    <ul>
+      <li>À propos de nous</li>
+      <li>Mentions légales</li>
+      <li>Contact</li>
+    </ul>
 
   </div>
-  <div class="footer__logo">LOGO</div>
+  <div class="footer__logo">
+    <img src="/images/logo.png" alt="Logo de l'entreprise Orinoco"></div>
   <div class="footer__rs">
     <i class="fab fa-facebook"></i>
     <i class="fab fa-instagram"></i>
