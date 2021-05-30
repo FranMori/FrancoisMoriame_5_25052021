@@ -1,47 +1,86 @@
-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: #fff5ee;
+* {
+  font-family: "Roboto", sans-serif;
 }
 
+body {
+  margin: 0px;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+.header__lien {
+  text-decoration: none;
+  color: white;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  background-color: #fff5ee;
+  justify-content: flex-end;
+}
+
+.header__logo {
+  display: flex;
+  justify-content: flex-start;
+  flex: 1;
+}
 .header__logo img {
   width: 400px;
 }
 
 .header__panier {
-  background-color: #965feb;
+  background-color: #d7b66f;
   display: flex;
-  justify-content: space-around;
+  justify-content: flex-end;
   padding: 10px;
+  margin-right: 50px;
+  color: white;
 }
 .header__panier i {
   font-size: 20px;
+  padding-right: 15px;
+  color: white;
+}
+
+h1 {
+  margin: 0px;
+  padding: 20px 0px;
+  display: flex;
+  justify-content: center;
+  background-color: #d7b66f;
 }
 
 .liste {
   display: flex;
-  justify-content: center;
   align-items: center;
-  flex-wrap: nowrap;
-  flex-direction: column;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  flex-direction: row;
+  padding-bottom: 25px;
+  background-color: #f2f2f2;
 }
 .liste img {
   width: 300px;
   height: 300px;
 }
 .liste__carte {
-  width: 50%;
+  width: 40%;
   display: flex;
   flex-direction: column;
   margin: 20px 0px;
-  border-radius: 10%;
   -webkit-box-shadow: inset 0px 5px 5px 0px rgba(0, 0, 0, 0.1);
   -moz-box-shadow: inset 0px 5px 5px 0px rgba(0, 0, 0, 0.1);
   box-shadow: inset 0px 5px 5px 0px rgba(0, 0, 0, 0.1);
+  border: 2px black solid;
+  background-color: #f2f2f2;
 }
 .liste__carte__image img {
   width: 100%;
+  object-fit: cover;
 }
 .liste__carte__description {
   display: flex;
@@ -52,20 +91,194 @@ header {
   display: flex;
   justify-content: center;
   font-weight: 800;
+  margin-bottom: 5px;
+}
+.liste__carte h2 {
+  display: flex;
+  justify-content: center;
+  margin: 5px 0px;
 }
 
 footer {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   background-color: #fff5ee;
 }
 footer ul {
   list-style: none;
+  padding-left: 10px;
+}
+footer li {
+  font-weight: 700;
 }
 
 .footer__logo img {
   width: 150px;
+}
+
+.footer__rs {
+  padding-right: 10px;
+  font-size: 20px;
+}
+
+.panier {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.panier img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border: 1px solid black;
+}
+.panier__carte {
+  width: 70%;
+  display: flex;
+  flex-direction: row;
+  background-color: #f2f2f2;
+  border: 2px solid black;
+}
+.panier__carte__article {
+  padding-left: 20px;
+}
+.panier__carte__description {
+  padding-top: 45px;
+  padding-left: 20px;
+}
+.panier__carte__quantite {
+  padding-left: 200px;
+}
+.panier__carte__quantite__input {
+  padding-top: 30px;
+}
+.panier__carte__quantite__input input {
+  width: 20%;
+}
+.panier__carte__prix {
+  padding-left: 200px;
+  padding-right: 5px;
+}
+.panier__carte__prix__somme {
+  padding-top: 30px;
+  font-weight: 700;
+}
+
+.recap {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  background-color: #f2f2f2;
+  border: 2px solid black;
+  width: 25%;
+  justify-content: space-around;
+  padding: 5px;
+}
+.recap__article {
+  display: flex;
+  justify-content: space-between;
+}
+.recap__livraison {
+  display: flex;
+  justify-content: space-between;
+}
+.recap__total {
+  display: flex;
+  justify-content: space-between;
+}
+.recap__commander {
+  display: flex;
+  justify-content: center;
+}
+.recap__commander__bouton {
+  background-color: #d7b66f;
+  color: white;
+  border: 1px solid #f2f2f2;
+  padding: 8px;
+}
+
+.confirmation {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+.confirmation__logo {
+  font-size: 100px;
+  color: #d7b66f;
+  margin-bottom: 40px;
+  margin-top: 80px;
+}
+.confirmation__merci {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 40px;
+}
+.confirmation__info {
+  font-size: 16px;
+  margin-bottom: 30px;
+}
+.confirmation__bouton {
+  color: white;
+  background-color: #d7b66f;
+  border: 0px;
+  padding: 5px;
+  width: 10%;
+}
+
+.footer__confirmation {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+.produit {
+  margin: 30px 0px;
+  display: flex;
+  justify-content: center;
+}
+.produit__carte {
+  display: flex;
+  flex-direction: column;
+  border: 2px solid black;
+}
+.produit__carte__texte {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 10px;
+}
+.produit img {
+  width: 500px;
+  height: 500px;
+  object-fit: cover;
+  border: 1px solid black;
+}
+.produit h4 {
+  margin-top: 0px;
+  margin-bottom: 5px;
+}
+.produit__carte__description {
+  margin-bottom: 10px;
+}
+.produit__carte__vernis {
+  margin-bottom: 10px;
+}
+.produit__carte__vernis select {
+  width: 25%;
+  margin-left: 20px;
+}
+.produit__carte__prix {
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+.produit__carte__panier {
+  background-color: #d7b66f;
+  color: white;
+  padding: 7px;
+  text-align: center;
+  width: 40%;
 }
 
 /*# sourceMappingURL=style.css.map */

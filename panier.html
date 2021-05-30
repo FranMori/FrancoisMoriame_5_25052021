@@ -4,46 +4,99 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://kit.fontawesome.com/420e897a90.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="/style.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;700&display=swap" rel="stylesheet">
   <title>Mon panier</title>
 </head>
 <body>
   <header>
-    <h1 class="header__titre">Orinoco</h1>
-    <div class="header__panier"><i class="header__panier__logo fas fa-shopping-cart"></i>
-      Mon panier
+    <div class="header__logo"><img src="/images/logo.png" alt="Logo de l'entreprise Orinoco"></div>
+    <div class="header__panier"><a class="header__lien" href="/index.html">
+      Accueil
+    </a>
     </div>
-    <div class="header__logo">LOGO</div>
 
   </header>
+  <h1>Récapitulatif de mon panier</h1>
+
 <section class="panier">
-<h2>Récapitulatif de mon panier</h2>
-<div class="panier__carte__produit">
-<div class="panier__carte__produit__image">
-  <img src="/images/oak_1.jpg" alt="Image de meuble en chêne">
+  <div class="panier__carte">
+    <div class="panier__carte__article">
+      <h3>Article</h3>
+      <img src="/images/oak_1.jpg" alt="Image d'un tabouret en chêne">
+    </div>
+    <div class="panier__carte__description">
+      <h3>Tabouret</h3>
+      Lorem ipsum dolor sit amet.
+    </div>
+    <div class="panier__carte__quantite">
+      <h3>Quantité</h3>
+      <div class="panier__carte__quantite__input">
+      <input type="number" name="quantite">
+    </div>
+    </div>
+    <div class="panier__carte__prix">
+      <h3>Prix</h3>
+      <div class="panier__carte__prix__somme">
+      100€
+    </div>
+    </div>
+  </div>
+<div class="recap">
+  <div class="recap__article">
+    <div class="recap__article__nombre">
+      ?ARTICLE
+    </div>
+    <div class="recap__article__prix">
+      ?€
+    </div>
+  </div>
+  <div class="recap__livraison">
+    <div class="recap__livraison__description">
+      LIVRAISON
+    </div>
+    <div class="recap__livraison__prix">
+      ?€
+    </div>
+  </div>
+    <div class="recap__total">
+      <div class="recap__total__description">
+        TOTAL
+      </div>
+      <div class="recap__total__prix">
+        ?€
+      </div>
+    </div>
+    <div class="recap__commander">
+      <button class="recap__commander__bouton">Commander</button>
+    </div>
 </div>
-<div class="panier__carte__produit__description">DESCRIPTION</div>
-<div class="panier__carte__produit__prix">PRIX</div>
-<div class="panier__carte__produit__quantité">
-  <input type="number" name="quantité">
-  
-</div>
-</div>
+</section>
+
 
 
 
 </section>
 
-  <footer>
-    <div class="footer__paiement">Moyens de paiement disponible :
-  
-    </div>
-    <div class="footer__logo">LOGO</div>
-    <div class="footer__rs">
-      <i class="fab fa-facebook"></i>
-      <i class="fab fa-instagram"></i>
-      <i class="fab fa-twitter"></i>
-    </div>
-  
-    </footer>
+<footer class="footer__confirmation">
+  <div class="footer__info">
+    <ul>
+      <li>À propos de nous</li>
+      <li>Mentions légales</li>
+      <li>Contact</li>
+    </ul>
+
+  </div>
+  <div class="footer__logo">
+    <img src="/images/logo.png" alt="Logo de l'entreprise Orinoco"></div>
+  <div class="footer__rs">
+    <i class="fab fa-facebook"></i>
+    <i class="fab fa-instagram"></i>
+    <i class="fab fa-twitter"></i>
+  </div>
+
+  </footer>
 </body>
 </html>

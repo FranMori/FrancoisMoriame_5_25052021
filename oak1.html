@@ -11,33 +11,55 @@
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;700&display=swap" rel="stylesheet">
 
   <title>Orinoco</title>
-
 </head>
 <body>
   <header>
     <div class="header__logo"><img src="/images/logo.png" alt="Logo de l'entreprise Orinoco"></div>
-    <div class="header__panier"><a class="header__lien" href="/index.html">
+    <div class="header__panier"><a href="/index.html">
       Accueil
     </a>
     </div>
 
   </header>
-  <section class="confirmation">
-  <div class="confirmation__logo"><i class="fas fa-shopping-bag"></i></div>
-  <div class="confirmation__merci">
-    Merci pour votre commande !
+<section class="produit">
+  <div class="produit__carte">
+    <div class="produit__carte__image">
+      <img src="/images/oak_1.jpg" alt="Image de meuble en chêne">
+    </div>
+    <div class="produit__carte__texte">
+    <div class="produit__carte__description">
+      <h4 class="produit__carte__description__titre">
+        Tabouret
+      </h4>
+      Lorem ipsum dolor sit amet.
+    </div>
+    <div class="produit__carte__vernis">
+      <label for="vernis__select">Choix du vernis</label>
+      <select name="vernis" id="vernis__select">
+        <option value="">--Choisissez--</option>
+        <option value="huile">Huile</option>
+        <option value="alcool">Alcool</option>
+        <option value="eau">Eau</option>
+        <option value="hybride">Hybride</option>
+      </select>
+    </div>
+    <div class="produit__carte__prix">
+      100€
+   </div>
+    <div class="produit__carte__panier">
+      <i class="fas fa-shopping-cart"></i>
+      Ajouter au panier
+    </div>
   </div>
-  <div class="confirmation__info">
-    Un e-mail de confirmation a été envoyée à EMAIL. Votre commande a été effectuée à HEURE. Des questions ? Contactez-nous à EMAIL
 
   </div>
-  <button class="confirmation__bouton"><a class="header__lien" href="/index.html">
-    OK </a></button>
+
 
 
 
 </section>
-<footer class="footer__confirmation">
+
+<footer>
   <div class="footer__info">
     <ul>
       <li>À propos de nous</li>

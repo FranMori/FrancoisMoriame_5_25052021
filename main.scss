@@ -1,44 +1,80 @@
+* {
+  font-family: "Roboto", sans-serif;
+}
+body {
+  margin: 0px;
+}
+a {
+  text-decoration: none;
+  color: black;
+}
+.header__lien {
+  text-decoration: none;
+  color: white;
+}
 header {
   display: flex;
-  justify-content: space-between;
   align-items: center;
   background-color: #fff5ee;
+  justify-content: flex-end;
 }
 .header__logo {
+  display: flex;
+  justify-content: flex-start;
+  flex: 1;
+
   & img {
     width: 400px;
   }
 }
 .header__panier {
-  background-color: #965feb;
+  background-color: #d7b66f;
   display: flex;
-  justify-content: space-around;
+  justify-content: flex-end;
   padding: 10px;
+  margin-right: 50px;
+  color: white;
   & i {
     font-size: 20px;
+    padding-right: 15px;
+    color: white;
   }
 }
-.liste {
+h1 {
+  margin: 0px;
+  padding: 20px 0px;
   display: flex;
   justify-content: center;
+  background-color: #d7b66f;
+}
+
+// Accueil
+
+.liste {
+  display: flex;
   align-items: center;
-  flex-wrap: nowrap;
-  flex-direction: column;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  flex-direction: row;
+  padding-bottom: 25px;
+  background-color: #f2f2f2;
   & img {
     width: 300px;
     height: 300px;
   }
   &__carte {
-    width: 50%;
+    width: 40%;
     display: flex;
     flex-direction: column;
     margin: 20px 0px;
-    border-radius: 10%;
     -webkit-box-shadow: inset 0px 5px 5px 0px rgba(0, 0, 0, 0.1);
     -moz-box-shadow: inset 0px 5px 5px 0px rgba(0, 0, 0, 0.1);
     box-shadow: inset 0px 5px 5px 0px rgba(0, 0, 0, 0.1);
+    border: 2px black solid;
+    background-color: #f2f2f2;
     &__image img {
       width: 100%;
+      object-fit: cover;
     }
     &__description {
       display: flex;
@@ -49,19 +85,196 @@ header {
       display: flex;
       justify-content: center;
       font-weight: 800;
+      margin-bottom: 5px;
+    }
+    & h2 {
+      display: flex;
+      justify-content: center;
+      margin: 5px 0px;
     }
   }
 }
 
 footer {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   background-color: #fff5ee;
   & ul {
     list-style: none;
+    padding-left: 10px;
+  }
+  & li {
+    font-weight: 700;
   }
 }
 .footer__logo img {
   width: 150px;
+}
+
+.footer__rs {
+  padding-right: 10px;
+  font-size: 20px;
+}
+// Panier
+
+.panier {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+
+  & img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border: 1px solid black;
+  }
+  &__carte {
+    width: 70%;
+    display: flex;
+    flex-direction: row;
+    background-color: #f2f2f2;
+    border: 2px solid black;
+    &__article {
+      padding-left: 20px;
+    }
+    &__description {
+      padding-top: 45px;
+      padding-left: 20px;
+    }
+    &__quantite {
+      padding-left: 200px;
+      &__input {
+        padding-top: 30px;
+        & input {
+          width: 20%;
+        }
+      }
+    }
+    &__prix {
+      padding-left: 200px;
+      padding-right: 5px;
+      &__somme {
+        padding-top: 30px;
+        font-weight: 700;
+      }
+    }
+  }
+}
+.recap {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  background-color: #f2f2f2;
+  border: 2px solid black;
+  width: 25%;
+  justify-content: space-around;
+  padding: 5px;
+  &__article {
+    display: flex;
+    justify-content: space-between;
+  }
+  &__livraison {
+    display: flex;
+    justify-content: space-between;
+  }
+  &__total {
+    display: flex;
+    justify-content: space-between;
+  }
+  &__commander {
+    display: flex;
+    justify-content: center;
+    &__bouton {
+      background-color: #d7b66f;
+      color: white;
+      border: 1px solid #f2f2f2;
+      padding: 8px;
+    }
+  }
+}
+// confirmation
+
+.confirmation {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  &__logo {
+    font-size: 100px;
+    color: #d7b66f;
+    margin-bottom: 40px;
+    margin-top: 80px;
+  }
+  &__merci {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 40px;
+  }
+  &__info {
+    font-size: 16px;
+    margin-bottom: 30px;
+  }
+  &__bouton {
+    color: white;
+    background-color: #d7b66f;
+    border: 0px;
+    padding: 5px;
+    width: 10%;
+  }
+}
+.footer__confirmation {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+// produit
+
+.produit {
+  margin: 30px 0px;
+  display: flex;
+  justify-content: center;
+
+  &__carte {
+    display: flex;
+    flex-direction: column;
+    border: 2px solid black;
+    &__texte {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 10px;
+    }
+  }
+  & img {
+    width: 500px;
+    height: 500px;
+    object-fit: cover;
+    border: 1px solid black;
+  }
+  & h4 {
+    margin-top: 0px;
+    margin-bottom: 5px;
+  }
+  &__carte__description {
+    margin-bottom: 10px;
+  }
+  &__carte__vernis {
+    margin-bottom: 10px;
+    & select {
+      width: 25%;
+      margin-left: 20px;
+    }
+  }
+  &__carte__prix {
+    margin-bottom: 10px;
+    font-weight: 700;
+  }
+  &__carte__panier {
+    background-color: #d7b66f;
+    color: white;
+    padding: 7px;
+    text-align: center;
+    width: 40%;
+  }
 }
