@@ -79,6 +79,7 @@ h1 {
     &__description {
       display: flex;
       justify-content: center;
+      text-align: center;
       margin: 10px 0px;
     }
     &__prix {
@@ -239,11 +240,51 @@ footer {
     display: flex;
     flex-direction: column;
     border: 2px solid black;
+    width: 60%;
     &__texte {
       display: flex;
       flex-direction: column;
       justify-content: center;
       padding: 10px;
+    }
+    &__image {
+      width: 100%;
+      margin-bottom: 20px;
+    }
+    &__description {
+      margin: 10px 10px;
+      &__titre {
+        font-weight: 700;
+        margin-bottom: 10px;
+      }
+    }
+    &__prix {
+      margin: 10px 10px;
+      font-weight: 700;
+    }
+    &__panier {
+      display: flex;
+      justify-content: center;
+      background-color: #d7b66f;
+      color: white;
+      padding: 7px;
+      text-align: center;
+      width: 25%;
+      & i {
+        margin-right: 10px;
+      }
+      &__bouton {
+        background-color: #d7b66f;
+        border: none;
+        color: white;
+        cursor: pointer;
+      }
+    }
+    &__vernis {
+      margin-top: 20px;
+      & select {
+        width: 25%;
+      }
     }
   }
   & img {
@@ -251,30 +292,6 @@ footer {
     height: 500px;
     object-fit: cover;
     border: 1px solid black;
-  }
-  & h4 {
-    margin-top: 0px;
-    margin-bottom: 5px;
-  }
-  &__carte__description {
-    margin-bottom: 10px;
-  }
-  &__carte__vernis {
-    margin-bottom: 10px;
-    & select {
-      width: 25%;
-      margin-left: 20px;
-    }
-  }
-  &__carte__prix {
-    margin-bottom: 10px;
-    font-weight: 700;
-  }
-  &__carte__panier {
-    background-color: #d7b66f;
-    color: white;
-    padding: 7px;
-    text-align: center;
-    width: 40%;
+    width: 100%;
   }
 }

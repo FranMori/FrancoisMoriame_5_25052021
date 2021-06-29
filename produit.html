@@ -21,34 +21,34 @@
     </div>
 
   </header>
-<section class="produit">
-  <div class="produit__carte">
-    <div class="produit__carte__image">
-      <img src="/images/oak_2.jpg" alt="Image de meuble en chêne">
+<section class="produit" id="core">
+  <div class="produit__carte" id="carte">
+    <div class="produit__carte__image" id="divImg">
+      <img class="produit__carte__image__img"  alt="Image de meuble en chêne" id="img">
     </div>
-    <div class="produit__carte__texte">
-    <div class="produit__carte__description">
-      <h4 class="produit__carte__description__titre">
-        Table
-      </h4>
-      Lorem ipsum dolor sit amet.
+    <div class="produit__carte__description" id="divDescription">
+      <div class="produit__carte__description__titre" id="divTitre"> 
+      </div>
+      <div class="produit__carte__descirption__texte" id="divTexte">
+
+      </div>
+      
     </div>
-    <div class="produit__carte__vernis">
+    <!-- <div class="produit__carte__vernis" id="divVernis">
       <label for="vernis__select">Choix du vernis</label>
-      <select name="vernis" id="vernis__select">
-        <option value="">--Choisissez--</option>
-        <option value="huile">Huile</option>
-        <option value="alcool">Alcool</option>
-        <option value="eau">Eau</option>
-        <option value="hybride">Hybride</option>
+      <select name="vernis" id="vernisSelect">
+        <option value="">--Choix--</option>
+        <option id="option1"></option>
+        <option id="option2"></option>
+        <option id="option3"></option>
+        <option id="option4"></option>
       </select>
-    </div>
-    <div class="produit__carte__prix">
-      100€
+    </div> -->
+    <div class="produit__carte__prix" id="divPrix">
    </div>
     <div class="produit__carte__panier">
       <i class="fas fa-shopping-cart"></i>
-      Ajouter au panier
+      <button class="produit__carte__panier__bouton" id="btnPanier">Ajouter au panier</button>
     </div>
   </div>
 
@@ -77,5 +77,6 @@
   </div>
 
   </footer>
+  <script src="/produit.js"></script>
 </body>
 </html>

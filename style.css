@@ -85,6 +85,7 @@ h1 {
 .liste__carte__description {
   display: flex;
   justify-content: center;
+  text-align: center;
   margin: 10px 0px;
 }
 .liste__carte__prix {
@@ -242,6 +243,7 @@ footer li {
   display: flex;
   flex-direction: column;
   border: 2px solid black;
+  width: 60%;
 }
 .produit__carte__texte {
   display: flex;
@@ -249,36 +251,51 @@ footer li {
   justify-content: center;
   padding: 10px;
 }
+.produit__carte__image {
+  width: 100%;
+  margin-bottom: 20px;
+}
+.produit__carte__description {
+  margin: 10px 10px;
+}
+.produit__carte__description__titre {
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+.produit__carte__prix {
+  margin: 10px 10px;
+  font-weight: 700;
+}
+.produit__carte__panier {
+  display: flex;
+  justify-content: center;
+  background-color: #d7b66f;
+  color: white;
+  padding: 7px;
+  text-align: center;
+  width: 25%;
+}
+.produit__carte__panier i {
+  margin-right: 10px;
+}
+.produit__carte__panier__bouton {
+  background-color: #d7b66f;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+.produit__carte__vernis {
+  margin-top: 20px;
+}
+.produit__carte__vernis select {
+  width: 25%;
+}
 .produit img {
   width: 500px;
   height: 500px;
   object-fit: cover;
   border: 1px solid black;
-}
-.produit h4 {
-  margin-top: 0px;
-  margin-bottom: 5px;
-}
-.produit__carte__description {
-  margin-bottom: 10px;
-}
-.produit__carte__vernis {
-  margin-bottom: 10px;
-}
-.produit__carte__vernis select {
-  width: 25%;
-  margin-left: 20px;
-}
-.produit__carte__prix {
-  margin-bottom: 10px;
-  font-weight: 700;
-}
-.produit__carte__panier {
-  background-color: #d7b66f;
-  color: white;
-  padding: 7px;
-  text-align: center;
-  width: 40%;
+  width: 100%;
 }
 
 /*# sourceMappingURL=style.css.map */
