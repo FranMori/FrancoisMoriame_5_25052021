@@ -8,24 +8,26 @@ const divTitre = document.getElementById('divTitre')
 const divTexte = document.getElementById('divTexte')
 const divPrix = document.getElementById('divPrix')
 
-function createNode(element) {
+  function createNode(element) {
     return document.createElement(element)
   }
   function append(parent, el) {
     return parent.appendChild(el)
   
   }
+  function innerHTML(element) {
+    return element.innerHTML
+  }  
 
 // Récupération de l'id dans l'url
 
 const queryString_url_id = window.location.search;
-console.log(queryString_url_id);
 
 const justId = queryString_url_id.slice(1)
-console.log(justId)
 
 const endPoint = (url) + (justId)
-console.log
+
+
 
 // Fetch
 
@@ -63,7 +65,7 @@ fetch(endPoint)
       // Sélection du bouton panier
 
       const btnPanier = document.getElementById('btnPanier')
-      console.log(btnPanier)
+      
 
       // Event listener 
       btnPanier.addEventListener("click", (event) => {
@@ -81,15 +83,37 @@ fetch(endPoint)
         idProduit : justId,
         choixVernis : choixVernis,
         prix : furniture.price,
-        description : furniture.description
+        description : furniture.description,
+        imgUrl : furniture.imageUrl
     
       }
       console.log(infosPanier)
-        
+      console.log(localStorage)
        // LocalStorage
+      
+      let produitLocalStorage = JSON.parse(localStorage.getItem("objet"))
+      console.log(produitLocalStorage)
 
+      const popupConfirmation = () => {
+        window.confirm ("Votre produit a bien été ajouté au panier. Vous allez être redirigé à l'accueil")
+        window.location.href = "index.html"
+      }
+      console.log(produitLocalStorage)
 
+      if (produitLocalStorage) {
+        produitLocalStorage.push(infosPanier)
+        localStorage.setItem("objet", JSON.stringify(produitLocalStorage))
+        popupConfirmation()
+      }
 
+      else {
+        produitLocalStorage = []
+        produitLocalStorage.push(infosPanier)
+        localStorage.setItem("objet", JSON.stringify(produitLocalStorage))
+        popupConfirmation()
+
+      }
+      
       })    
 
   

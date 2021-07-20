@@ -123,6 +123,7 @@ footer {
   width: 100%;
   display: flex;
   justify-content: space-between;
+  flex-direction: column;
 
   & img {
     width: 150px;
@@ -131,7 +132,7 @@ footer {
     border: 1px solid black;
   }
   &__carte {
-    width: 70%;
+    width: 100%;
     display: flex;
     flex-direction: row;
     background-color: #f2f2f2;
@@ -140,30 +141,43 @@ footer {
       padding-left: 20px;
     }
     &__description {
-      padding-top: 45px;
       padding-left: 20px;
+      padding-right: 40px;
+    }
+    &__vernis {
+      order: 3;
     }
     &__quantite {
-      padding-left: 200px;
+      padding-left: 20px;
+      order: 5;
       &__input {
-        padding-top: 30px;
-        & input {
-          width: 20%;
-        }
+        width: 30%;
       }
     }
     &__prix {
-      padding-left: 200px;
+      padding-left: 20px;
       padding-right: 5px;
+      order: 4;
       &__somme {
         padding-top: 30px;
         font-weight: 700;
       }
     }
+    &__supprimer {
+      height: 20%;
+      order: 5;
+      margin-top: 60px;
+      margin-right: 15px;
+    }
+  }
+  &__prixTotal {
+    font-weight: 700;
+    font-size: 22px;
   }
 }
 .recap {
   display: flex;
+  order: 2;
   flex-direction: column;
   flex-wrap: nowrap;
   background-color: #f2f2f2;
@@ -192,6 +206,35 @@ footer {
       border: 1px solid #f2f2f2;
       padding: 8px;
     }
+  }
+}
+.recap__formulaire {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+}
+.formulaire {
+  background-color: #f2f2f2;
+  border: 1px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  flex-direction: column;
+  width: 30%;
+  &__nom {
+    padding: 5px 0px;
+  }
+  &__mail {
+    padding: 5px 0px;
+  }
+  &__adresse {
+    padding: 5px 0px;
+  }
+  & input {
+    display: block;
+    width: 150px;
+    float: right;
   }
 }
 // confirmation
@@ -224,11 +267,7 @@ footer {
     width: 10%;
   }
 }
-.footer__confirmation {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-}
+
 // produit
 
 .produit {
@@ -288,8 +327,7 @@ footer {
     }
   }
   & img {
-    width: 500px;
-    height: 500px;
+    height: 28rem;
     object-fit: cover;
     border: 1px solid black;
     width: 100%;

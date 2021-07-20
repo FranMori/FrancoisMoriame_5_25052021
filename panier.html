@@ -21,64 +21,42 @@
   </header>
   <h1>Récapitulatif de mon panier</h1>
 
-<section class="panier">
-  <div class="panier__carte">
-    <div class="panier__carte__article">
-      <h3>Article</h3>
-      <img src="/images/oak_1.jpg" alt="Image d'un tabouret en chêne">
-    </div>
-    <div class="panier__carte__description">
-      <h3>Tabouret</h3>
-      Lorem ipsum dolor sit amet.
-    </div>
-    <div class="panier__carte__quantite">
-      <h3>Quantité</h3>
-      <div class="panier__carte__quantite__input">
-      <input type="number" name="quantite">
-    </div>
-    </div>
-    <div class="panier__carte__prix">
-      <h3>Prix</h3>
-      <div class="panier__carte__prix__somme">
-      100€
-    </div>
-    </div>
+<section class="panier" id="core">
+  <div class="recap__formulaire" id="core2">
+     <div class="recap" id="resume">
+  
+</div> 
+<div class="formulaire">
+  <h4>Formulaire de confirmation</h4>
+  <form action="" method="POST" >
+  <div class="formulaire__nom">
+  <label for="name"> Nom :</label>
+  <input type="text" id="name" name="user__name">
   </div>
-<div class="recap">
-  <div class="recap__article">
-    <div class="recap__article__nombre">
-      ?ARTICLE
+  <div class="formulaire__prenom">
+    <label for="prenom"> Prénom :</label>
+    <input type="text" id="prenom" name="user__prenom">
     </div>
-    <div class="recap__article__prix">
-      ?€
-    </div>
+  <div class="formulaire__mail">
+  <label for="mail">e-mail :</label>
+  <input type="email" id="mail" name="user__mail">
   </div>
-  <div class="recap__livraison">
-    <div class="recap__livraison__description">
-      LIVRAISON
-    </div>
-    <div class="recap__livraison__prix">
-      ?€
-    </div>
+  <div class="formulaire__adresse">
+  <label for="adress">Adresse :</label>
+   <input type="text" id="adress" name="user__adress">
   </div>
-    <div class="recap__total">
-      <div class="recap__total__description">
-        TOTAL
-      </div>
-      <div class="recap__total__prix">
-        ?€
-      </div>
+  <div class="formulaire__ville">
+    <label for="ville">Ville :</label>
+     <input type="text" id="ville" name="user__ville">
     </div>
+</form>
     <div class="recap__commander">
       <button class="recap__commander__bouton">Commander</button>
-    </div>
+    </div>  
+  </div>
 </div>
 </section>
 
-
-
-
-</section>
 
 <footer class="footer__confirmation">
   <div class="footer__info">
@@ -98,5 +76,6 @@
   </div>
 
   </footer>
+  <script src="panier.js"></script>
 </body>
 </html>
