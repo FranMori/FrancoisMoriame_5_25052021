@@ -1,7 +1,3 @@
-let produitLocalStorage = (localStorage.getItem('objet'))
-console.log(localStorage)
-console.log(produitLocalStorage)
-
 const section = document.getElementById('core')
 const resume = document.getElementById('resume')
 const core2 = document.getElementById('core2')
@@ -14,14 +10,24 @@ function append(parent, el) {
 
 }
 
-if(produitLocalStorage === null) {
+let itemsPanier = 'itemsPanier'
+
+
+let panierLocalStorage = JSON.parse(localStorage.getItem(itemsPanier))
+
+let prixTotalTableau = []
+let prixTotal = 0
+
+
+
+if(panierLocalStorage === null) {
   let panierVide = createNode ("div")
   panierVide.className = "panier__vide"
   panierVide.innerHTML = "Le panier est vide"
   append (section, panierVide)
 }
 else {
-  for (j = 0; j < produitLocalStorage.length; j++) {
+  for (const item in panierLocalStorage) {
     let carte = createNode("div")
     let divArticle = createNode ('div')
     let divDescription = createNode ('div')
@@ -38,34 +44,33 @@ else {
     let btnQuantite = createNode ('input')
     let titrePrix = createNode ('h3')
     let paraPrix = createNode ('span')
+    let divBtnSupprimer = createNode('div')
     let btnSupprimer = createNode ('button')
+    let divPanierResponsive = createNode ('div')
 
     titreArticle.innerHTML = "Article"
-    imgArticle.src = produitLocalStorage[j].imgUrl
-    titreDescription.innerHTML = produitLocalStorage[j].nomProduit
-    paraDescription.innerHTML = produitLocalStorage[j].description
+    imgArticle.src = panierLocalStorage[item].imgUrl
+    titreDescription.innerHTML = panierLocalStorage[item].nomProduit
+    paraDescription.innerHTML = panierLocalStorage[item].description
     titreVernis.innerHTML = "Vernis"
-    paraVernis.innerHTML = produitLocalStorage[j].choixVernis
+    paraVernis.innerHTML = panierLocalStorage[item].choixVernis
     titreQuantite.innerHTML = "Quantité"
     btnQuantite.type = "number"
     btnQuantite.min = "1"  
     btnQuantite.placeholder = "1"
     titrePrix.innerHTML = "Prix"
-    paraPrix.innerHTML = (produitLocalStorage[j].prix)
+    paraPrix.innerHTML = (panierLocalStorage[item]).prix
+    prixTotal = prixTotal + (panierLocalStorage[item]).prix
     btnSupprimer.innerHTML = "Supprimer"
-    btnSupprimer.id = (produitLocalStorage[j].idProduit)
-
-    console.log(btnSupprimer.id)
+    btnSupprimer.id = (panierLocalStorage[item]).idProduit
+    let vernisChoisi = (panierLocalStorage[item]).choixVernis
 
     
     
 
     append (section, carte)
     append (carte, divArticle)
-    append (carte, divDescription)
-    append (carte, divQuantite)
-    append (carte, divPrix)
-    append (carte, divVernis)
+    append (carte, divPanierResponsive)
     append (divArticle, titreArticle)
     append (divArticle, imgArticle)
     append (divDescription, titreDescription)
@@ -76,7 +81,14 @@ else {
     append (divQuantite, btnQuantite)
     append (divPrix, titrePrix)
     append (divPrix, paraPrix)
-    append (carte, btnSupprimer)
+    append (divBtnSupprimer, btnSupprimer)
+    append (carte, divBtnSupprimer)
+    append (divPanierResponsive, divDescription)
+    append (divPanierResponsive, divQuantite)
+    append (divPanierResponsive, divPrix)
+    append (divPanierResponsive, divVernis)
+    append (divPanierResponsive, divBtnSupprimer)
+
 
     carte.className = "panier__carte"
     divArticle.className = "panier__carte__article"
@@ -88,53 +100,87 @@ else {
     divPrix.className = "panier__carte__prix"
     btnQuantite.className = "panier__carte__quantite__input"
     paraPrix.className = "panier__carte__prix__somme"
-    btnSupprimer.className = "panier__carte__supprimer"
+    divBtnSupprimer.className = "panier__carte__supprimer"
+    divPanierResponsive.className = "panier__responsive"
+    btnSupprimer.setAttribute("vernis", vernisChoisi)
 
-    // Bouton supprimer
-    let idPanier = produitLocalStorage[j].idProduit
-    console.log(idPanier)
-    console.log(btnSupprimer)
-
-  //  for (let l = 0; l < btnSupprimer.length; l++) {
      btnSupprimer.addEventListener("click", (event) => {
        event.preventDefault();
-       console.log(event)
-       console.log(event.target.id)
-      // let idSuppression = produitLocalStorage[l].idPanier
+       
       
-      // console.log(idSuppression)
+      const popupSuppression = () => {
+        window.confirm ("Ce produit sera enlevé de votre panier.")
+        window.location.href = "panier.html"
+      }
+      const deleteLocalStorage = () => {
+        delete panierLocalStorage[item]
+        localStorage.setItem(itemsPanier, JSON.stringify(panierLocalStorage))
+      }
 
-
-      produitLocalStorage = produitLocalStorage.filter(el => el.idPanier !== idSuppression )
-      console.log(produitLocalStorage)
+    let varSuppression = btnSupprimer.id + '_' + btnSupprimer.getAttribute("vernis")
+       if (varSuppression === item) {
+         deleteLocalStorage()
+         popupSuppression()
+      }
+      
      })
-  //  }
+     let articlePrix = document.getElementById('articlePrix')
+         
+         append (section, core2)
+         append (core2, resume)
+         append (resume, articlePrix)
+        prixTotalTableau.push(prixTotal)
+        let prixTotalFinal = prixTotalTableau[prixTotalTableau.length -1]
+         articlePrix.innerHTML = "Prix total : " + prixTotalFinal
+         articlePrix.className = "panier__prixTotal"
+        
+}}
 
+const btnCommander = document.getElementById('btnCommander')
+const form = document.getElementById('form')
+const nom = form.elements['lastName']
+const prenom = form.elements['firstName']
+const ville = form.elements['city']
+const adresse = form.elements['adress']
+const mail = form.elements['email']
+
+const urlPost = 'http://localhost:3000/api/furniture/order'
+
+btnCommander.addEventListener("click", (event) => {
+for (const item in panierLocalStorage) {
+  products = panierLocalStorage[item].idProduit
+
+    let objectForm = {
+      "contact": {
+        "firstName": prenom.value, 
+        "lastName": nom.value, 
+        "address": adresse.value, 
+        "city": ville.value, 
+        "email": mail.value
+      },
+      "products": [
+        products
+      ]
   }
+
+  var myHeaders = new Headers();
+myHeaders.append("Content-Type", "application/json");
+
+var requestOptions = {
+  method: 'POST',
+  headers: myHeaders,
+  body: JSON.stringify(objectForm),
+  redirect: 'follow'
+};
+
+  
+ fetch("http://localhost:3000/api/furniture/order", requestOptions)
+  .then(response => response.text())
+  .then(result => console.log(result))
+  .catch(error => console.log('error', error));
+  
 }
-
+    }
     
-let container = createNode('div')
-let articlePrix = createNode('span')
-    
-    append (section, core2)
-    append (core2, resume)
-    append (resume, container)
-    append (container, articlePrix)
-   
-
-    let prixTotalTableau = []
-
-for (let k = 0; k < produitLocalStorage.length; k++) {
-  let prixPanier = produitLocalStorage[k].prix
-  prixTotalTableau.push(prixPanier)
-}
-
-const reducer = (accumulator, currentValue) => accumulator + currentValue;
-let prixTotal = prixTotalTableau.reduce(reducer);
-
-articlePrix.innerHTML = "Prix total : " + prixTotal
-articlePrix.className = "panier__prixTotal"
-
-
- 
+    )
+  

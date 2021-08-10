@@ -9,6 +9,10 @@ function append(parent, el) {
 
 }
 
+function innerHTML(element) {
+  return element.innerHTML
+}
+
 fetch(url)
 .then((response) => response.json())
 .then(function(data) {

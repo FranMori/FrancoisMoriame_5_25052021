@@ -8,6 +8,8 @@ const divTitre = document.getElementById('divTitre')
 const divTexte = document.getElementById('divTexte')
 const divPrix = document.getElementById('divPrix')
 
+let itemsPanier = 'itemsPanier'
+
   function createNode(element) {
     return document.createElement(element)
   }
@@ -15,11 +17,10 @@ const divPrix = document.getElementById('divPrix')
     return parent.appendChild(el)
   
   }
-  function innerHTML(element) {
-    return element.innerHTML
-  }  
+
 
 // Récupération de l'id dans l'url
+
 
 const queryString_url_id = window.location.search;
 
@@ -87,37 +88,24 @@ fetch(endPoint)
         imgUrl : furniture.imageUrl
     
       }
-      console.log(infosPanier)
-      console.log(localStorage)
+     
        // LocalStorage
       
-      let produitLocalStorage = JSON.parse(localStorage.getItem("objet"))
-      console.log(produitLocalStorage)
+      let produitLocalStorage = JSON.parse(window.localStorage.getItem(itemsPanier)) || {};
 
       const popupConfirmation = () => {
         window.confirm ("Votre produit a bien été ajouté au panier. Vous allez être redirigé à l'accueil")
         window.location.href = "index.html"
       }
-      console.log(produitLocalStorage)
 
-      if (produitLocalStorage) {
-        produitLocalStorage.push(infosPanier)
-        localStorage.setItem("objet", JSON.stringify(produitLocalStorage))
-        popupConfirmation()
+      const addLocalStorage = () => {
+      produitLocalStorage[justId + '_' + choixVernis] = infosPanier
+      localStorage.setItem(itemsPanier, JSON.stringify(produitLocalStorage))
       }
 
-      else {
-        produitLocalStorage = []
-        produitLocalStorage.push(infosPanier)
-        localStorage.setItem("objet", JSON.stringify(produitLocalStorage))
-        popupConfirmation()
-
-      }
-      
+      addLocalStorage()
+      popupConfirmation()
       })    
-
-  
-    
     })
 
 

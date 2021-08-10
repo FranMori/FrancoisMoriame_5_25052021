@@ -30,7 +30,7 @@ header {
 .header__panier {
   background-color: #d7b66f;
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
   padding: 10px;
   margin-right: 50px;
   color: white;
@@ -174,6 +174,11 @@ footer {
     font-weight: 700;
     font-size: 22px;
   }
+  &__responsive {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+  }
 }
 .recap {
   display: flex;
@@ -235,6 +240,9 @@ footer {
     display: block;
     width: 150px;
     float: right;
+  }
+  & form {
+    font-size: 15px;
   }
 }
 // confirmation
@@ -323,6 +331,7 @@ footer {
       margin-top: 20px;
       & select {
         width: 25%;
+        max-width: 100px;
       }
     }
   }
@@ -331,5 +340,206 @@ footer {
     object-fit: cover;
     border: 1px solid black;
     width: 100%;
+  }
+}
+
+@media all and (min-width: 490px) and (max-width: 750px) {
+  .liste {
+    flex-direction: column;
+    width: 100%;
+
+    &__carte {
+      width: 60%;
+    }
+  }
+  .header__logo img {
+    width: 250px;
+  }
+  .header__panier {
+    margin-right: 1%;
+  }
+  h1 {
+    text-align: center;
+    padding: 0% 5%;
+  }
+
+  .produit__carte {
+    width: 80%;
+  }
+  .panier__carte {
+    font-size: 12px;
+    &__description {
+      padding: 0px 10px;
+      & p {
+        display: none;
+      }
+    }
+    &__vernis {
+      display: flex;
+      flex-direction: row;
+      width: 35%;
+      align-items: center;
+      margin-left: 25px;
+    }
+    &__prix {
+      display: flex;
+      flex-direction: row;
+      width: 35%;
+      align-items: center;
+      margin-left: 25px;
+      padding-left: 0px;
+      &__somme {
+        padding-top: 0px;
+      }
+    }
+    &__quantite {
+      padding-right: 15px;
+      width: 12%;
+      display: flex;
+      flex-direction: row;
+      width: 35%;
+      align-items: center;
+      margin-left: 25px;
+      padding-left: 0px;
+      & input {
+        max-width: 30px;
+      }
+      & h3 {
+        padding-right: 10px;
+      }
+    }
+    &__supprimer {
+      margin-top: 0px;
+      margin-left: 25px;
+      margin-bottom: 20px;
+    }
+    & h3 {
+      width: 50%;
+    }
+  }
+  .panier__responsive {
+    display: flex;
+    flex-direction: column;
+  }
+  .formulaire {
+    display: flex;
+    align-items: flex-start;
+    width: 60%;
+    padding-left: 10px;
+    & h4 {
+      margin: 5px 0;
+    }
+  }
+  .recap__commander {
+    margin: 10px 0px;
+  }
+}
+
+@media all and (min-width: 1px) and (max-width: 489px) {
+  .liste {
+    flex-direction: column;
+    width: 100%;
+
+    &__carte {
+      width: 70%;
+    }
+  }
+  h1 {
+    text-align: center;
+    padding: 0% 5%;
+  }
+  .header__panier {
+    margin-right: 1%;
+    margin-bottom: 5%;
+    margin-top: 3%;
+    padding: 5px;
+  }
+  .header__logo img {
+    width: 150px;
+    margin-bottom: 5%;
+  }
+  .footer {
+    &__logo {
+      width: 100px;
+    }
+    &__rs {
+      font-size: 16px;
+    }
+  }
+  footer li {
+    font-size: 12px;
+  }
+
+  .produit__carte {
+    width: 90%;
+  }
+  .produit__carte__panier {
+    width: 35%;
+  }
+  .panier__carte {
+    font-size: 12px;
+    &__description {
+      padding: 0px 10px;
+      & p {
+        display: none;
+      }
+    }
+    &__vernis {
+      display: flex;
+      flex-direction: row;
+      width: 60%;
+      align-items: center;
+      margin-left: 25px;
+    }
+    &__prix {
+      display: flex;
+      flex-direction: row;
+      width: 60%;
+      align-items: center;
+      margin-left: 25px;
+      padding-left: 0px;
+      &__somme {
+        padding-top: 0px;
+      }
+    }
+    &__quantite {
+      padding-right: 15px;
+      display: flex;
+      flex-direction: row;
+      width: 60%;
+      align-items: center;
+      margin-left: 25px;
+      padding-left: 0px;
+      & input {
+        max-width: 30px;
+      }
+      & h3 {
+        padding-right: 10px;
+      }
+    }
+    &__supprimer {
+      margin-top: 0px;
+      margin-left: 25px;
+      margin-bottom: 20px;
+    }
+    & h3 {
+      width: 50%;
+    }
+  }
+  .panier__responsive {
+    display: flex;
+    flex-direction: column;
+  }
+  .formulaire {
+    display: flex;
+    align-items: flex-start;
+    width: 70%;
+    padding-left: 10px;
+    & h4 {
+      margin: 5px 0;
+    }
+  }
+  .recap__commander {
+    margin: 10px 0px;
   }
 }

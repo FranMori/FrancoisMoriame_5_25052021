@@ -24,34 +24,34 @@
 <section class="panier" id="core">
   <div class="recap__formulaire" id="core2">
      <div class="recap" id="resume">
-  
+       <span id="articlePrix"></span>
 </div> 
 <div class="formulaire">
   <h4>Formulaire de confirmation</h4>
-  <form action="" method="POST" >
+  <form action="" method="POST" id="form">
   <div class="formulaire__nom">
   <label for="name"> Nom :</label>
-  <input type="text" id="name" name="user__name">
+  <input type="text" id="lastName">
   </div>
   <div class="formulaire__prenom">
     <label for="prenom"> Prénom :</label>
-    <input type="text" id="prenom" name="user__prenom">
+    <input type="text" id="firstName">
     </div>
   <div class="formulaire__mail">
   <label for="mail">e-mail :</label>
-  <input type="email" id="mail" name="user__mail">
+  <input type="email" id="email" >
   </div>
   <div class="formulaire__adresse">
   <label for="adress">Adresse :</label>
-   <input type="text" id="adress" name="user__adress">
+   <input type="text" id="adress" >
   </div>
   <div class="formulaire__ville">
     <label for="ville">Ville :</label>
-     <input type="text" id="ville" name="user__ville">
+     <input type="text" id="city" >
     </div>
 </form>
     <div class="recap__commander">
-      <button class="recap__commander__bouton">Commander</button>
+      <input type="submit" class="recap__commander__bouton" id="btnCommander"  value="Commander"></input>
     </div>  
   </div>
 </div>
