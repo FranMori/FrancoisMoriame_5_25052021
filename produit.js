@@ -1,12 +1,18 @@
+// Récupération des variables et des fonctions
+
 const url = 'http://localhost:3000/api/furniture/'
-const section = document.getElementById('core')
-const carte = document.getElementById('carte')
-const divImg = document.getElementById('divImg')
-const img = document.getElementById('img')
-const divDescription = document.getElementById('divDescription')
-const divTitre = document.getElementById('divTitre')
-const divTexte = document.getElementById('divTexte')
-const divPrix = document.getElementById('divPrix')
+
+const displayProduit = () => {
+  const section = document.getElementById('core')
+  const carte = document.getElementById('carte')
+  const divImg = document.getElementById('divImg')
+  const img = document.getElementById('img')
+  const divDescription = document.getElementById('divDescription')
+  const divTitre = document.getElementById('divTitre')
+  const divTexte = document.getElementById('divTexte')
+  const divPrix = document.getElementById('divPrix')
+}
+
 
 let itemsPanier = 'itemsPanier'
 
@@ -15,7 +21,6 @@ let itemsPanier = 'itemsPanier'
   }
   function append(parent, el) {
     return parent.appendChild(el)
-  
   }
 
 
@@ -40,7 +45,7 @@ fetch(endPoint)
         img.src = furniture.imageUrl
         divTexte.innerHTML = furniture.description
         divTitre.innerHTML = furniture.name
-        divPrix.innerHTML = furniture.price
+        divPrix.innerHTML = furniture.price/100
         let divVernis = createNode ('div')
         let selectVernis = createNode ('select')
         selectVernis.name = 'vernis'
@@ -58,10 +63,7 @@ fetch(endPoint)
            
         }
        // Sélection ID vernis
-      const idVernis = document.getElementById('vernisSelect')
-      
-
-    
+      const idVernis = document.getElementById('vernisSelect')      
 
       // Sélection du bouton panier
 

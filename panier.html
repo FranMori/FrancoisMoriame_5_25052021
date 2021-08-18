@@ -21,6 +21,8 @@
   </header>
   <h1>Récapitulatif de mon panier</h1>
 
+<div class="panier__vide" id="panierVide"></div>
+
 <section class="panier" id="core">
   <div class="recap__formulaire" id="core2">
      <div class="recap" id="resume">
@@ -28,30 +30,31 @@
 </div> 
 <div class="formulaire">
   <h4>Formulaire de confirmation</h4>
-  <form action="" method="POST" id="form">
+  <form action="" method="POST" id="form" name="formulaire">
   <div class="formulaire__nom">
   <label for="name"> Nom :</label>
-  <input type="text" id="lastName">
+  <input type="text" id="lastName" name="nom">
   </div>
   <div class="formulaire__prenom">
     <label for="prenom"> Prénom :</label>
-    <input type="text" id="firstName">
+    <input type="text" id="firstName" name="prenom">
     </div>
   <div class="formulaire__mail">
   <label for="mail">e-mail :</label>
-  <input type="email" id="email" >
+  <input type="email" id="email" name="email" >
   </div>
   <div class="formulaire__adresse">
   <label for="adress">Adresse :</label>
-   <input type="text" id="adress" >
+   <input type="text" id="adress" name="adresse" >
   </div>
   <div class="formulaire__ville">
     <label for="ville">Ville :</label>
-     <input type="text" id="city" >
+     <input type="text" id="city"  name="ville">
     </div>
 </form>
     <div class="recap__commander">
-      <input type="submit" class="recap__commander__bouton" id="btnCommander"  value="Commander"></input>
+      <a  id="lienFormulaire">
+      <input type="submit" class="recap__commander__bouton" id="btnCommander"  value="Commander" ></input></a>
     </div>  
   </div>
 </div>

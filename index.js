@@ -1,3 +1,5 @@
+// Récupération des variables et des fonctions
+
 const section = document.getElementById('core');
 const url = 'http://localhost:3000/api/furniture'
 
@@ -6,12 +8,9 @@ function createNode(element) {
 }
 function append(parent, el) {
   return parent.appendChild(el)
-
 }
 
-function innerHTML(element) {
-  return element.innerHTML
-}
+// Fetch
 
 fetch(url)
 .then((response) => response.json())
@@ -29,7 +28,7 @@ fetch(url)
     oak.src = furniture.imageUrl
     titre.innerHTML = furniture.name
     description.innerHTML = furniture.description
-    prix.innerHTML = furniture.price
+    prix.innerHTML = furniture.price/100
     carte.className = 'liste__carte'
     description.className = 'liste__carte__description'
     prix.className = 'liste__carte__prix'
@@ -48,7 +47,7 @@ fetch(url)
     append(lienProduit, prix)
     append(section, carte)
     append(carte, lienProduit)
-    
+  
 
     })})
 

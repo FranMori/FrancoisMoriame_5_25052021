@@ -1,3 +1,5 @@
+// Récupération des variables et des fonctions
+
 const section = document.getElementById('core')
 const resume = document.getElementById('resume')
 const core2 = document.getElementById('core2')
@@ -7,25 +9,28 @@ function createNode(element) {
 }
 function append(parent, el) {
   return parent.appendChild(el)
-
 }
 
 let itemsPanier = 'itemsPanier'
-
 
 let panierLocalStorage = JSON.parse(localStorage.getItem(itemsPanier))
 
 let prixTotalTableau = []
 let prixTotal = 0
 
+// Création interface panier vide
 
-
-if(panierLocalStorage === null) {
-  let panierVide = createNode ("div")
-  panierVide.className = "panier__vide"
+const displayPanierVide = () => {
+  let panierVide = document.getElementById('panierVide')
   panierVide.innerHTML = "Le panier est vide"
-  append (section, panierVide)
 }
+
+if((Object.keys(panierLocalStorage)).length === 0) {
+  displayPanierVide()
+}
+
+// Boucle pour afficher le panier
+
 else {
   for (const item in panierLocalStorage) {
     let carte = createNode("div")
@@ -59,14 +64,11 @@ else {
     btnQuantite.min = "1"  
     btnQuantite.placeholder = "1"
     titrePrix.innerHTML = "Prix"
-    paraPrix.innerHTML = (panierLocalStorage[item]).prix
-    prixTotal = prixTotal + (panierLocalStorage[item]).prix
+    paraPrix.innerHTML = ((panierLocalStorage[item]).prix)/100
+    prixTotal = prixTotal + (panierLocalStorage[item]).prix/100
     btnSupprimer.innerHTML = "Supprimer"
     btnSupprimer.id = (panierLocalStorage[item]).idProduit
     let vernisChoisi = (panierLocalStorage[item]).choixVernis
-
-    
-    
 
     append (section, carte)
     append (carte, divArticle)
@@ -89,7 +91,6 @@ else {
     append (divPanierResponsive, divVernis)
     append (divPanierResponsive, divBtnSupprimer)
 
-
     carte.className = "panier__carte"
     divArticle.className = "panier__carte__article"
     imgArticle.alt ="Image d'un meuble en chêne"
@@ -104,14 +105,16 @@ else {
     divPanierResponsive.className = "panier__responsive"
     btnSupprimer.setAttribute("vernis", vernisChoisi)
 
+    // Mise en fonction du bouton supprimer
+
      btnSupprimer.addEventListener("click", (event) => {
-       event.preventDefault();
-       
+       event.preventDefault();   
       
       const popupSuppression = () => {
         window.confirm ("Ce produit sera enlevé de votre panier.")
         window.location.href = "panier.html"
       }
+
       const deleteLocalStorage = () => {
         delete panierLocalStorage[item]
         localStorage.setItem(itemsPanier, JSON.stringify(panierLocalStorage))
@@ -123,6 +126,8 @@ else {
          popupSuppression()
       }
       
+      // Mise en place du prix total
+
      })
      let articlePrix = document.getElementById('articlePrix')
          
@@ -132,9 +137,10 @@ else {
         prixTotalTableau.push(prixTotal)
         let prixTotalFinal = prixTotalTableau[prixTotalTableau.length -1]
          articlePrix.innerHTML = "Prix total : " + prixTotalFinal
-         articlePrix.className = "panier__prixTotal"
-        
+         articlePrix.className = "panier__prixTotal"    
 }}
+
+// Mise en fonction du formulaire de confirmation
 
 const btnCommander = document.getElementById('btnCommander')
 const form = document.getElementById('form')
@@ -143,10 +149,29 @@ const prenom = form.elements['firstName']
 const ville = form.elements['city']
 const adresse = form.elements['adress']
 const mail = form.elements['email']
+const lienFormulaire = document.getElementById('lienFormulaire')
+
+function validateForm() {
+  if ((document.forms["formulaire"]["prenom"].value == "") || 
+  (document.forms["formulaire"]["nom"].value == "") ||
+  (document.forms["formulaire"]["email"].value == "") ||
+   (document.forms["formulaire"]["adresse"].value == "") || 
+   (document.forms["formulaire"]["ville"].value == "")) {
+    window.confirm ("Vous devez remplir le formulaire complètement")
+    return false
+  }
+  else {
+    lienFormulaire.href = "confirmation.html"
+  }
+}
+
 
 const urlPost = 'http://localhost:3000/api/furniture/order'
 
+// Ajout de l'event listener pour l'envoie des données
+
 btnCommander.addEventListener("click", (event) => {
+  validateForm()
 for (const item in panierLocalStorage) {
   products = panierLocalStorage[item].idProduit
 
@@ -163,6 +188,8 @@ for (const item in panierLocalStorage) {
       ]
   }
 
+  // Requête post
+
   var myHeaders = new Headers();
 myHeaders.append("Content-Type", "application/json");
 
@@ -172,15 +199,10 @@ var requestOptions = {
   body: JSON.stringify(objectForm),
   redirect: 'follow'
 };
-
   
  fetch("http://localhost:3000/api/furniture/order", requestOptions)
   .then(response => response.text())
   .then(result => console.log(result))
   .catch(error => console.log('error', error));
-  
-}
-    }
-    
-    )
+}})
   
